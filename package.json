@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --output-path docs --base-href /catalog-movie-app",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:catalog-movie-app": "node dist/catalog-movie-app/server/server.mjs"
