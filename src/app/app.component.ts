@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild, ElementRef } from '@angular/core';
+import { setTheme } from '@ui5/webcomponents-base/dist/config/Theme';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'catalog-movie-app';
+  @ViewChild('themeSettingsPopover') themeSettingsPopover!: ElementRef;
+
+  constructor() {}
+  
+  handleThemeChange(event:any) {
+		setTheme(event.detail.selectedItems[0].getAttribute('data-theme'));
+		this.themeSettingsPopover.nativeElement.close();
+	}
 }
