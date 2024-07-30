@@ -1,0 +1,27 @@
+.app-bar-profile-popover {
+    width: 250px;
+}
+
+.profile-settings,
+.help-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+.profile-settings-list {
+    margin-top: 1.25rem;
+}
+
