@@ -1,0 +1,30 @@
+name: Deploy Angular App
+
+on:
+  push:
+    branches:
+      - build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18.19.1'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build the app
+      run: ng build --prod --output-path docs --base-href /catalog-movie-app/
+
+    - name: Deploy to GitHub Pages
+      run: npx angular-cli-ghpages --dir=dist/catalog-movie-app
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
