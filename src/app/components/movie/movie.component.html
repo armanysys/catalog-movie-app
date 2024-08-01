@@ -1,0 +1,14 @@
+<div *ngIf="movieDetails">
+  <ui5-card [heading]="movieDetails.title" [subheading]="movieDetails.tagline" [status]="movieDetails.status">
+    <div class="card-content-details">
+      <img src="https://image.tmdb.org/t/p/w500{{ movieDetails.poster_path }}" [alt]="movieDetails.title" />
+      <p>{{ movieDetails.overview }}</p>
+      <p><strong>Release Date:</strong> {{ movieDetails.release_date }}</p>
+      <p><strong>Genres:</strong> {{ getGenres() }}</p>
+      <p><strong>Runtime:</strong> {{ movieDetails.runtime }} minutes</p>
+      <p><strong>Vote Average:</strong> {{ movieDetails.vote_average }}</p>
+      <ui5-button [routerLink]="['/home']">Back</ui5-button>
+    </div>
+  </ui5-card>
+</div>
+

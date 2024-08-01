@@ -1,4 +1,73 @@
 <div class="animated fadeIn fast">
-    <p>home works!</p>
-</div>
+    <section>
+        <div class="panel-cards">
+            <ui5-bar design="Header" class="ui5-bar">
+                <!-- Select Element -->
+                <div class="start-content" slot="startContent">
+                    <ui5-title level="H2" slot="endContent" class="ui5-title">Top Five Movies - Yerar</ui5-title>
+                </div>
 
+                <div class="end-content" slot="endContent" class="ui5-select">
+                    <ui5-select>
+                        <ui5-option>Option 1</ui5-option>
+                        <ui5-option>Option 2</ui5-option>
+                        <ui5-option>Option 3</ui5-option>
+                    </ui5-select>
+                </div>
+            </ui5-bar>
+            <!-- Select Element -->
+            <ui5-card class="card" *ngFor="let movie of topMovies;">
+                <div class="card-content">
+                    <img [src]="movie.poster_path" [alt]="movie.title" class="card-image">
+                    <h3>{{movie.title}}</h3>
+                    <p>{{movie.overview}}</p>
+                    <div class="rating">
+                        <p>{{movie.vote_average}}</p>
+                    </div>
+                    <p>{{movie.release_date}}</p>
+                    <div class="card-actions">
+                        <ui5-button (ui5Click)="movieDetails(movie.id)">Ver mas</ui5-button>
+                        <ui5-button>Add to Favorites</ui5-button>
+                    </div>
+                </div>
+            </ui5-card>
+
+        </div>
+        <div class="panel-container-all-movies">
+            <ui5-panel class="panel-all-movies">
+                <div class="panel-header-all-movies">
+                    <ui5-title level="H2">Movie Catalog</ui5-title>
+                    <div class="panel-buttons-all-movies">
+                        <ui5-select>
+                            <ui5-option>Option 1</ui5-option>
+                            <ui5-option>Option 2</ui5-option>
+                            <ui5-option>Option 3</ui5-option>
+                        </ui5-select>
+                        <ui5-select>
+                            <ui5-option>Option 1</ui5-option>
+                            <ui5-option>Option 2</ui5-option>
+                            <ui5-option>Option 3</ui5-option>
+                        </ui5-select>
+                    </div>
+                </div>
+                <div class="cards-container-all-movies">
+                    <ui5-card class="card" *ngFor="let movie of topMovies">
+                        <div class="card-content">
+                            <img [src]="movie.poster_path" [alt]="movie.title" class="card-image">
+                            <h3>{{movie.title}}</h3>
+                            <p>{{movie.overview}}</p>
+                            <div>
+                                <p>{{movie.vote_average}}</p>
+                            </div>
+                            <p>{{movie.release_date}}</p>
+                            <div class="card-actions">
+                                <ui5-button>Ver mas</ui5-button>
+                                <ui5-button>Add to Favorites</ui5-button>
+                            </div>
+                        </div>
+                    </ui5-card>
+                </div>
+            </ui5-panel>
+        </div>
+    </section>
+</div>
