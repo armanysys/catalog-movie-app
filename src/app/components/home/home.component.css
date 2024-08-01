@@ -1,0 +1,95 @@
+/* Top 5 movies styles */
+.panel-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 100%;
+}
+
+.ui5-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.ui5-title {
+  flex: 1;
+}
+
+.ui5-select {
+  flex: 1;
+  max-width: 200px;
+  /* Ajusta este valor según tus necesidades */
+}
+
+.start-content {
+  display: flex;
+  align-items: center;
+}
+
+.end-content {
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  margin: 5px;
+  padding: 5px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-content {
+  text-align: center;
+  padding: 10px;
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+/* All-movies */
+.panel-container-all-movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 100%;
+}
+
+.panel-all-movies {
+  width: 100%;
+  max-width: 1450px;
+}
+
+.panel-header-all-movies {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.panel-buttons-all-movies {
+  display: flex;
+  gap: 10px;
+}
+
+.cards-container-all-movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

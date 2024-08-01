@@ -2,14 +2,13 @@
     <ui5-shellbar id="shellbar" primary-title="Corporate Portal" (profileClick)="handleProfileClick($event)">
         <ui5-button slot="startButton" icon="home" design="Transparent" routerLinkActive="active"
             [routerLink]="['home']">Home</ui5-button>
-        <ui5-button slot="startButton" icon="employee" design="Transparent" routerLinkActive="active"
-            [routerLink]="['movies']">Movies</ui5-button>
+        
         <ui5-button slot="startButton" icon="settings" design="Transparent" routerLinkActive="active"
             [routerLink]="['about']">About</ui5-button>
         <ui5-avatar slot="profile">
             <img src="https://sap.github.io/ui5-webcomponents/images/avatars/woman_avatar_5.png" />
         </ui5-avatar>
-        <ui5-input slot="searchField"></ui5-input>
+        <ui5-input [formControl]="searchControl" slot="searchField" placeholder="Buscar películas..."></ui5-input>
     </ui5-shellbar>
 
     <ui5-popover #profilePop opener="shellbar" id="profile-pop" class="app-bar-profile-popover" horizontal-align="Start"
