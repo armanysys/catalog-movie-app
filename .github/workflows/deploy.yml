@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: Build the app
-      run: npm run build --prod --output-path docs --base-href /catalog-movie-app/
+      run: npm run build --prod
 
     - name: Deploy to GitHub Pages
       run: npx angular-cli-ghpages --dir=dist/catalog-movie-app
