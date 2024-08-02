@@ -1,19 +1,22 @@
 import { Component, Input } from '@angular/core';
 import { IMovieDetails } from '../../core/interfaces/movie.interface';
 import { MoviesService } from '../../services/movies.service';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
-  styleUrl: './movie.component.css'
+  styleUrl: './movie.component.css',
 })
 export class MovieComponent {
   id!: number;
   movieDetails!: IMovieDetails;
 
-  constructor( private _moviesservices:MoviesService, private _activaterouter: ActivatedRoute){
-    this._activaterouter.params.subscribe(params =>this.id = params['id'])
+  constructor(
+    private _moviesservices: MoviesService,
+    private _activaterouter: ActivatedRoute
+  ) {
+    this._activaterouter.params.subscribe((params) => (this.id = params['id']));
   }
 
   ngOnInit(): void {
@@ -23,8 +26,8 @@ export class MovieComponent {
       this.movieDetails = details;
     });
   }
-  
+
   getGenres(): string {
-    return this.movieDetails.genres.map(genre => genre.name).join(', ');
-}
+    return this.movieDetails.genres.map((genre) => genre.name).join(', ');
+  }
 }

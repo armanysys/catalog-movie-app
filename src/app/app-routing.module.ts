@@ -5,14 +5,14 @@ import { AboutComponent } from './components/about/about.component';
 import { MovieComponent } from './components/movie/movie.component';
 
 const routes: Routes = [
-  { path:'home', component:HomeComponent },
-  { path:'about', component:AboutComponent },
-  { path:'movie/:id', component:MovieComponent },
-  { path:'**', pathMatch:'full', redirectTo:'home' }
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'movie/:id', component: MovieComponent },
+  { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
