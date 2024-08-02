@@ -9,7 +9,7 @@ import { IMovie, IMovieDetails, IMovieResponse } from "../core/interfaces/movie.
   providedIn: 'root'
 })
 export class MoviesService {
-  private apiKey = '';
+  private apiKey = 'ecea911b3487521a12211c0eeef434fb';
   private apiUrl = 'https://api.themoviedb.org/3';
 
   constructor(private http: HttpClient) { }
