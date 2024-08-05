@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { IMovie, IMovieResponse } from '../../core/interfaces/movie.interface';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private _moviesservices: MoviesService,
+    private _authservice: AuthenticationService,
     private _router: Router
   ) {}
 
@@ -33,6 +35,24 @@ export class HomeComponent implements OnInit {
       this.currentPage = response?.page;
       this.totalPages = response?.total_pages;
     });
+    this.checkToken();
+  }
+  checkToken() {
+    const token = this._authservice.getToken();
+    if (token) {
+      console.log('Token is valid:', token);
+    } else {
+     this._authservice.getRequestToken().subscribe({
+        next: (response: any) => {
+          const newToken = response.request_token;
+          this._authservice.saveToken(newToken);
+          console.log('New token saved:', newToken);
+        },
+        error: (error) => {
+          console.error('Error fetching token:', error);
+        },
+      });
+    }
   }
 
   movieDetails(id: number) {
