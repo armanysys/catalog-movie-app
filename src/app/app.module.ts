@@ -21,6 +21,7 @@ import { MoviesService } from './services/movies.service';
 // UI5 Web Components used
 import { setTheme } from '@ui5/webcomponents-base/dist/config/Theme';
 import '@ui5/webcomponents-icons/dist/AllIcons';
+import { LoginComponent } from './components/login/login.component';
 setTheme('sap_horizon');
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ setTheme('sap_horizon');
     HomeComponent,
     MovieComponent,
     AboutComponent,
+    LoginComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
