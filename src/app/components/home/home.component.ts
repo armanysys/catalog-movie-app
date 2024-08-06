@@ -38,23 +38,24 @@ export class HomeComponent implements OnInit {
       this.totalPages = response?.total_pages;
     });
 
-    this.route.queryParams.subscribe(async params => {
-      const requestToken = params['request_token'];
-      console.log(requestToken);
-      if (requestToken) {
-        this._authservice.saveToken(requestToken);
-        const sessionId = await this._authservice.createSession();
-        if (sessionId) {
-          console.log('Session created:', sessionId);
-          // Redirect to a different page or perform other actions
-          this.router.navigate(['/home']);
-        } else {
-          console.log('Failed to create session');
-        }
-      } else {
-        await this._authservice.RequestToken();
-      }
-    });
+    // ** Logig, request token and create sesio **
+    // this.route.queryParams.subscribe(async params => {
+    //   const requestToken = params['request_token'];
+    //   console.log(requestToken);
+    //   if (requestToken) {
+    //     this._authservice.saveToken(requestToken);
+    //     const sessionId = await this._authservice.createSession();
+    //     if (sessionId) {
+    //       console.log('Session created:', sessionId);
+    //       // Redirect to a different page or perform other actions
+    //       this.router.navigate(['/home']);
+    //     } else {
+    //       console.log('Failed to create session');
+    //     }
+    //   } else {
+    //     await this._authservice.RequestToken();
+    //   }
+    // });
   }
 
 
