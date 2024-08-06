@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { IMovie, IMovieResponse } from '../../core/interfaces/movie.interface';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
@@ -17,12 +17,14 @@ export class HomeComponent implements OnInit {
   totalPages: number = 1;
 
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private _moviesservices: MoviesService,
     private _authservice: AuthenticationService,
     private _router: Router
   ) {}
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this._moviesservices
       .getTopRatedMovies(this.releaseYear)
       .subscribe((response) => {
@@ -35,25 +37,26 @@ export class HomeComponent implements OnInit {
       this.currentPage = response?.page;
       this.totalPages = response?.total_pages;
     });
-    this.checkToken();
+
+    this.route.queryParams.subscribe(async params => {
+      const requestToken = params['request_token'];
+      console.log(requestToken);
+      if (requestToken) {
+        this._authservice.saveToken(requestToken);
+        const sessionId = await this._authservice.createSession();
+        if (sessionId) {
+          console.log('Session created:', sessionId);
+          // Redirect to a different page or perform other actions
+          this.router.navigate(['/home']);
+        } else {
+          console.log('Failed to create session');
+        }
+      } else {
+        await this._authservice.RequestToken();
+      }
+    });
   }
-  checkToken() {
-    const token = this._authservice.getToken();
-    if (token) {
-      console.log('Token is valid:', token);
-    } else {
-     this._authservice.getRequestToken().subscribe({
-        next: (response: any) => {
-          const newToken = response.request_token;
-          this._authservice.saveToken(newToken);
-          console.log('New token saved:', newToken);
-        },
-        error: (error) => {
-          console.error('Error fetching token:', error);
-        },
-      });
-    }
-  }
+
 
   movieDetails(id: number) {
     this._router.navigate(['movie', id]);

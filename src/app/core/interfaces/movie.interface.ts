@@ -55,3 +55,21 @@ export interface IMovieDetails {
   vote_average: number;
   vote_count: number;
 }
+
+export interface ITokenResponse {
+  success: boolean;
+  expires_at: string;
+  request_token: string;
+}
+
+export interface SessionResponse {
+  success: boolean;
+  session_id: string;
+}
+
+// Example usage:
+const response: ITokenResponse = {
+  success: true,
+  expires_at: '2024-08-06 00:19:14 UTC',
+  request_token: '573bc5250ee70cbb7ee7d0522dc84c5d02a03b1e',
+};
