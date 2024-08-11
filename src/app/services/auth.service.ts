@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { response } from 'express';
-import { error } from 'console';
+import { map } from 'rxjs/operators'; 
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private apiUrl = 'https://api.themoviedb.org/3';
-  private apiKey = 'ecea911b3487521a12211c0eeef434fb';
+  private apiKey = '17f4116782bcf156dc47f63bdeddc15d';
 
   constructor(private http: HttpClient) {}
+
+
+  
 
   login(username: string, password: string): Observable<any> {
     const token = this.getRequestToken();
