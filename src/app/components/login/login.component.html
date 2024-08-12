@@ -1,5 +1,5 @@
-<form (ngSubmit)="onSubmit(username.value, password.value)">
-    <input type="text" placeholder="Usuario" #username required>
-    <input type="password" placeholder="Contraseña" #password required>
-    <button type="submit">Iniciar sesión</button>
-  </form>
+<form (submit)="onSubmit()">
+  <input type="text" [(ngModel)]="user.username" placeholder="Username" autocomplete name="username" required>
+  <input type="password" [(ngModel)]="user.password" placeholder="Password" autocomplete name="password" required>
+  <button type="submit">Login</button>
+</form>

@@ -69,27 +69,6 @@ export class AuthenticationService {
     }
   }
 
-  private async createSession() {
-    const token = this.getToken();
-    if (token) {
-      try {
-        const params = new HttpParams() 
-          .set('request_token', token);
-
-        const url = `${this.apiUrl}/authentication/session/new`;
-        const response: any = await this.http
-          .post(url, { params: params })
-          .toPromise();
-        return response.session_id;
-      } catch (error: any) {
-        this.handleError(error);
-      } finally {
-        return null;
-      }
-    }
-    return null;
-  }
-
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!';
     if (error.error instanceof ErrorEvent) {

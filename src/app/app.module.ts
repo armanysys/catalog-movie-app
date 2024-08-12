@@ -5,7 +5,7 @@ import {
 } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ui5WebcomponentsModule } from '@ui5/webcomponents-ngx';
 
 // Components
@@ -34,6 +34,7 @@ setTheme('sap_horizon');
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
