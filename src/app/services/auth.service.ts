@@ -13,7 +13,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class AuthService {
   private apiUrl = 'https://api.themoviedb.org/3';
-  private apiKey = '17f4116782bcf156dc47f63bdeddc15d';
+  private apiKey = '';
   private tokenKey = 'tmdb_request_token';
 
   constructor(private http: HttpClient) {}
