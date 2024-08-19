@@ -11,7 +11,7 @@ import { ITokenResponse } from '../core/interfaces/movie.interface';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private apiKey = '17f4116782bcf156dc47f63bdeddc15d';
+  private apiKey = '';
   private apiUrl = 'https://api.themoviedb.org/3';
   private tokenKey = 'tmdb_request_token';
   private redirectUrl = 'http://localhost:4200/catalog-movie-app/home';
