@@ -13,7 +13,7 @@ import {
 export class MoviesService {
   private movieDataSubject = new BehaviorSubject<any>(null);
   movieData$ = this.movieDataSubject.asObservable();
-  private apiKey = '17f4116782bcf156dc47f63bdeddc15d';
+  private apiKey = '';
   private apiUrl = 'https://api.themoviedb.org/3';
 
   constructor(private http: HttpClient) {}
